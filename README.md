@@ -1,4 +1,4 @@
-# 🛡️ Library API Test Suite
+# Library API Test Suite
 
 [![Java Version](https://img.shields.io/badge/Java-17+-orange.svg)](https://www.oracle.com/java/technologies/javase-jdk17-downloads.html)
 [![Maven Central](https://img.shields.io/badge/Maven-3.9+-blue.svg)](https://maven.apache.org/)
@@ -6,22 +6,22 @@
 [![Allure](https://img.shields.io/badge/Allure-2.24.0-yellow.svg)](https://qameta.io/allure-report/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-A professional, enterprise-grade API testing framework built for reliability, speed, and deep visibility. This suite demonstrates advanced REST Assured techniques, including **Custom Interceptors**, **Dynamic Mocking**, and **Data-Driven Architecture**.
+A professional, enterprise-grade API testing framework built for reliability, speed, and deep visibility. This suite provides advanced REST Assured techniques, including Custom Interceptors, Dynamic Mocking, and Data-Driven Architecture.
 
 ---
 
-## 🚀 Key Features
+## Key Features
 
-*   **⚡ Smart Mocking (MockFilter)**: Custom-built Rest Assured Filter that detects network blocks or Cloudflare protection and automatically switches to local mock data for 100% test reliability.
-*   **🧩 Data-Driven Engine**: Decoupled test logic from data using externalized JSON providers for high-scale scenario testing.
-*   **🏗️ Spec-Driven Design**: Centralized Request and Response specifications to ensure consistency and eliminate code duplication.
-*   **📊 Interactive Reporting**: Rich, visual Allure reports with step-by-step execution details and automated CI/CD integration.
-*   **🛡️ Robust POJO Mapping**: Hand-crafted Model-driven architecture (replacing unstable annotations) for maximum compatibility across environments.
-*   **🔄 CI/CD Powered**: Fully automated pipelines for testing and report deployment via GitHub Actions.
+*   **Smart Mocking (MockFilter)**: Custom-built Rest Assured Filter that detects network blocks or Cloudflare protection and automatically switches to local mock data for 100% test reliability.
+*   **Data-Driven Engine**: Decoupled test logic from data using externalized JSON providers for high-scale scenario testing.
+*   **Spec-Driven Design**: Centralized Request and Response specifications to ensure consistency and eliminate code duplication.
+*   **Interactive Reporting**: Rich, visual Allure reports with step-by-step execution details and automated CI/CD integration.
+*   **Robust POJO Mapping**: Hand-crafted Model-driven architecture (replacing unstable annotations) for maximum compatibility across environments.
+*   **Continuous Integration**: Fully automated pipelines for testing and report deployment via GitHub Actions.
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 | Category | Tool |
 | :--- | :--- |
@@ -35,7 +35,7 @@ A professional, enterprise-grade API testing framework built for reliability, sp
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```text
 ├── config/checkstyle/      # Static code analysis rules
@@ -55,7 +55,7 @@ A professional, enterprise-grade API testing framework built for reliability, sp
 
 ---
 
-## 🏃 Getting Started
+## Getting Started
 
 ### Prerequisites
 *   **Java JDK 17**
@@ -67,12 +67,12 @@ Run the full regression suite with a single command:
 mvn clean test
 ```
 
-### 🧠 Smart Mocking (Experimental)
-This project features a custom `MockFilter`. If the target API (`service.verivox.de`) is unreachable or protected by Cloudflare, the framework will automatically serve data from `src/test/resources/test-data/` without any changes needed to your test code.
+### Smart Mocking (Experimental)
+This project features a custom MockFilter. If the target API (service.verivox.de) is unreachable or protected by Cloudflare, the framework will automatically serve data from src/test/resources/test-data/ without any changes needed to your test code.
 
 ---
 
-## 📊 Reporting & Insights
+## Reporting and Insights
 
 ### Local Allure Report
 Generate a stunning, interactive dashboard to analyze your test results:
@@ -88,8 +88,8 @@ Reports are automatically deployed to GitHub Pages on every successful run in th
 
 ---
 
-## 🤝 Contribution & License
-This project is open-source under the **MIT License**. Developed and maintained by **Taniiie**.
+## Contribution and License
+This project is open-source under the MIT License. Developed and maintained by Taniiie.
 
 ---
-*Stay stable, stay automated.* 🚀
+*Stay stable, stay automated.*
