@@ -1,0 +1,74 @@
+[
+  {
+    "Code": "10409",
+    "Cities": [
+      {
+        "City": "Berlin",
+        "Streets": [
+          "Cohnstr.",
+          "Einsteinstr.",
+          "Erich-Weinert-Str.",
+          "Georg-Blank-Str.",
+          "Goethestr.",
+          "Greifswalder Str.",
+          "Grellstr.",
+          "Gubitzstr.",
+          "Gürtelstr.",
+          "Hanns-Eisler-Str.",
+          "Hosemannstr.",
+          "Küselstr.",
+          "Lindenhoekweg",
+          "Mandelstr.",
+          "Michelangelostr.",
+          "Naugarder Str.",
+          "Ostseeplatz",
+          "Ostseestr.",
+          "Paul-Grasse-Str.",
+          "Pieskower Weg",
+          "Prenzlauer Allee",
+          "Preußstr.",
+          "Rietzestr.",
+          "Schieritzstr.",
+          "Sodtkestr.",
+          "Storkower Str.",
+          "Sültstr.",
+          "Thomas-Mann-Str.",
+          "Trachtenbrodtstr."
+        ]
+      }
+    ]
+  },
+  {
+    "Code": "77716",
+    "Cities": [
+      {
+        "City": "Fischerbach",
+        "Streets": [
+          "Am Höfle",
+          "Fritz-Ullmann-Weg",
+          "Im Katzengraben"
+        ]
+      },
+      {
+        "City": "Haslach",
+        "Streets": [
+          "Alte Hausacher Str.",
+          "Bächlewaldweg",
+          "Dr.-Kempf-Str.",
+          "Wolfgäßle",
+          "Xaver-Hättich-Str.",
+          "Ziegelhütte"
+        ]
+      },
+      {
+        "City": "Hofstetten",
+        "Streets": [
+          "Alter Weg",
+          "Bühlstr.",
+          "Eugen-Klausner-Str.",
+          "Weißer Brunnen"
+        ]
+      }
+    ]
+  }
+]

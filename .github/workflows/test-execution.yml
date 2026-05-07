@@ -1,0 +1,70 @@
+name: API Tests
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+ builds:
+  runs-on: ubuntu-latest
+
+  steps:
+   - name: Checkout
+     uses: actions/checkout@v4
+
+   - name: Setup Java JDK 17
+     uses: actions/setup-java@v3
+     with:
+       distribution: 'temurin' # See 'Supported distributions' for available options
+       java-version: 17
+
+   - name: Cache Maven packages
+     uses: actions/cache@v3
+     with:
+          path: ~/.m2/repository  # Cache the Maven repository
+          key: maven-${{ runner.os }}-${{ hashFiles('**/pom.xml') }}  # Cache key based on the OS and project files
+          restore-keys: |
+            maven-${{ runner.os }}-
+
+   - name: Run Tests
+     run: mvn clean test
+
+   - uses: actions/upload-artifact@v3
+     with:
+      name: allure-results
+      path: target/allure-results
+      retention-days: 20
+
+   - name: Get Allure history
+     uses: actions/checkout@v4
+     if: always()
+     continue-on-error: true
+     with:
+      ref: gh-pages
+      path: gh-pages
+    
+   - name: Allure Report action from marketplace
+     uses: simple-elf/allure-report-action@master
+     if: always()
+     id: allure-report
+     with:
+      allure_results: target/allure-results
+      gh_pages: gh-pages
+      allure_report: allure-report
+      allure_history: allure-history
+      keep_reports: 20
+
+   - name: Deploy report to Github Pages
+     if: always()
+     uses: peaceiris/actions-gh-pages@v2
+     env:
+      PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      PUBLISH_BRANCH: gh-pages
+      PUBLISH_DIR: allure-history
+        
+   
+   
