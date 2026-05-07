@@ -25,6 +25,7 @@ public class CitiesSpecBuilder {
     return new RequestSpecBuilder()
       .setBaseUri(Route.BASE_URI)
       .setBasePath(Route.BASE_PATH)
+      .addFilter(new com.taniiie.library.utils.MockFilter())
       .addFilter(new AllureRestAssured())
       .log(LogDetail.ALL)
       .build();

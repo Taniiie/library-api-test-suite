@@ -24,6 +24,7 @@ public class StreetsSpecBuilder {
     return new RequestSpecBuilder()
       .setBaseUri(Route.BASE_URI)
       .setBasePath(Route.BASE_PATH)
+      .addFilter(new com.taniiie.library.utils.MockFilter())
       .addFilter(new AllureRestAssured())
       .log(LogDetail.ALL)
       .build();
@@ -44,6 +45,7 @@ public class StreetsSpecBuilder {
       .setBasePath(Route.BASE_PATH)
       .addPathParam("code", City.BERLIN.getPostalCode())
       .addPathParam("city", City.BERLIN.name().toLowerCase())
+      .addFilter(new com.taniiie.library.utils.MockFilter())
       .addFilter(new AllureRestAssured())
       .log(LogDetail.ALL)
       .build();
