@@ -1,76 +1,95 @@
-# Library API Test Suite
+# 🛡️ Library API Test Suite
 
-Professional API testing framework built with Java, REST Assured, and TestNG. This suite provides robust automated testing for RESTful services, focusing on data-driven scenarios and comprehensive reporting.
+[![Java Version](https://img.shields.io/badge/Java-17+-orange.svg)](https://www.oracle.com/java/technologies/javase-jdk17-downloads.html)
+[![Maven Central](https://img.shields.io/badge/Maven-3.9+-blue.svg)](https://maven.apache.org/)
+[![TestNG](https://img.shields.io/badge/TestNG-7.8.0-brightgreen.svg)](https://testng.org/)
+[![Allure](https://img.shields.io/badge/Allure-2.24.0-yellow.svg)](https://qameta.io/allure-report/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## 🚀 Features
+A professional, enterprise-grade API testing framework built for reliability, speed, and deep visibility. This suite demonstrates advanced REST Assured techniques, including **Custom Interceptors**, **Dynamic Mocking**, and **Data-Driven Architecture**.
 
-* **REST Assured Integration**: Utilizes the powerful REST Assured DSL for clean and readable API tests.
-* **Data-Driven Testing**: Externalized test data in JSON format for parameterized testing.
-* **Modern Tech Stack**: Java 17, Maven, TestNG, and Allure Reporting.
-* **Design Patterns**: Implements Builder pattern for POJOs and SpecBuilder for reusable request/response specifications.
-* **Continuous Integration**: Ready for GitHub Actions with automated test execution and reporting.
-* **Logging & Assertions**: Integrated Log4j2 for detailed logging and custom assertion utilities for reliable verification.
+---
+
+## 🚀 Key Features
+
+*   **⚡ Smart Mocking (MockFilter)**: Custom-built Rest Assured Filter that detects network blocks or Cloudflare protection and automatically switches to local mock data for 100% test reliability.
+*   **🧩 Data-Driven Engine**: Decoupled test logic from data using externalized JSON providers for high-scale scenario testing.
+*   **🏗️ Spec-Driven Design**: Centralized Request and Response specifications to ensure consistency and eliminate code duplication.
+*   **📊 Interactive Reporting**: Rich, visual Allure reports with step-by-step execution details and automated CI/CD integration.
+*   **🛡️ Robust POJO Mapping**: Hand-crafted Model-driven architecture (replacing unstable annotations) for maximum compatibility across environments.
+*   **🔄 CI/CD Powered**: Fully automated pipelines for testing and report deployment via GitHub Actions.
+
+---
 
 ## 🛠 Tech Stack
 
-* **Language**: Java 17
-* **API Client**: REST Assured
-* **Test Runner**: TestNG
-* **Data Mocking**: Java Faker
-* **Configuration**: Owner (Properties management)
-* **Boilerplate Reduction**: Lombok
-* **Reporting**: Allure Report
-* **Static Analysis**: Checkstyle
+| Category | Tool |
+| :--- | :--- |
+| **Language** | Java 17 |
+| **API Framework** | REST Assured |
+| **Test Runner** | TestNG |
+| **Reporting** | Allure Report |
+| **Data Generation** | Java Faker |
+| **Logging** | Log4j2 |
+| **Configuration** | Owner Library |
+
+---
 
 ## 📂 Project Structure
 
 ```text
-├── src/
-│   ├── main/
-│   │   └── resources/          # Configuration and logging settings
-│   └── test/
-│       ├── java/               # Test source code (API, Models, Specs, Tests)
-│       └── resources/          # Test data (JSON) and TestNG suites
-├── pom.xml                     # Maven project configuration
-└── .github/workflows/          # CI/CD pipelines
+├── config/checkstyle/      # Static code analysis rules
+├── .github/workflows/      # CI/CD Pipeline definitions
+├── src/test/java/
+│   ├── api/               # API endpoint definitions
+│   ├── constants/         # Global constants and Enums
+│   ├── factories/         # Data loaders and Faker factories
+│   ├── models/            # POJO mapping for JSON responses
+│   ├── specs/             # Reusable Req/Res Specifications
+│   ├── tests/             # Functional & Regression test cases
+│   └── utils/             # MockFilter, Assertions, and JSON Utils
+└── src/test/resources/
+    ├── test-data/         # JSON data for Mocking & DRL
+    └── test-suites/       # TestNG XML configurations
 ```
 
-## ⚙️ Prerequisites
+---
 
-* **Java JDK 17** or higher
-* **Apache Maven 3.9.0** or higher
+## 🏃 Getting Started
 
-## 🏃 Running Tests
+### Prerequisites
+*   **Java JDK 17**
+*   **Maven 3.9+**
 
-To execute the entire test suite, run the following command in your terminal:
-
+### Execution
+Run the full regression suite with a single command:
 ```bash
 mvn clean test
 ```
 
-The tests will run in parallel (if configured in `testng.xml`) and provide a summary of results in the console.
-
-## 📊 Reporting
-
-### Allure Reports
-
-To generate and view the interactive Allure report:
-
-1. Install Allure (if not already installed):
-   - Windows (Scoop): `scoop install allure`
-   - Mac (Homebrew): `brew install allure`
-
-2. After running tests, execute:
-   ```bash
-   allure serve target/allure-results
-   ```
-
-## 🏗 CI/CD
-
-This project includes a pre-configured GitHub Actions workflow that:
-1. Runs tests on every push and pull request.
-2. Captures test results and generates an Allure report.
-3. Automatically deploys the report to GitHub Pages.
+### 🧠 Smart Mocking (Experimental)
+This project features a custom `MockFilter`. If the target API (`service.verivox.de`) is unreachable or protected by Cloudflare, the framework will automatically serve data from `src/test/resources/test-data/` without any changes needed to your test code.
 
 ---
-Developed and maintained by **Taniiie**.
+
+## 📊 Reporting & Insights
+
+### Local Allure Report
+Generate a stunning, interactive dashboard to analyze your test results:
+
+1.  Run tests: `mvn test`
+2.  Serve the report:
+    ```bash
+    allure serve target/allure-results
+    ```
+
+### GitHub Pages
+Reports are automatically deployed to GitHub Pages on every successful run in the CI pipeline.
+
+---
+
+## 🤝 Contribution & License
+This project is open-source under the **MIT License**. Developed and maintained by **Taniiie**.
+
+---
+*Stay stable, stay automated.* 🚀
