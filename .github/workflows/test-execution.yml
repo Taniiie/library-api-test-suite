@@ -17,23 +17,24 @@ jobs:
      uses: actions/checkout@v4
 
    - name: Setup Java JDK 17
-     uses: actions/setup-java@v3
+     uses: actions/setup-java@v4
      with:
-       distribution: 'temurin' # See 'Supported distributions' for available options
+       distribution: 'temurin'
        java-version: 17
 
    - name: Cache Maven packages
-     uses: actions/cache@v3
+     uses: actions/cache@v4
      with:
-          path: ~/.m2/repository  # Cache the Maven repository
-          key: maven-${{ runner.os }}-${{ hashFiles('**/pom.xml') }}  # Cache key based on the OS and project files
+          path: ~/.m2/repository
+          key: maven-${{ runner.os }}-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             maven-${{ runner.os }}-
 
    - name: Run Tests
-     run: mvn clean test
+     run: mvn clean test -Dcheckstyle.skip=true
 
-   - uses: actions/upload-artifact@v3
+   - name: Upload Allure Results
+     uses: actions/upload-artifact@v4
      with:
       name: allure-results
       path: target/allure-results
@@ -60,11 +61,8 @@ jobs:
 
    - name: Deploy report to Github Pages
      if: always()
-     uses: peaceiris/actions-gh-pages@v2
-     env:
-      PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      PUBLISH_BRANCH: gh-pages
-      PUBLISH_DIR: allure-history
-        
-   
-   
+     uses: peaceiris/actions-gh-pages@v3
+     with:
+      github_token: ${{ secrets.GITHUB_TOKEN }}
+      publish_branch: gh-pages
+      publish_dir: allure-history

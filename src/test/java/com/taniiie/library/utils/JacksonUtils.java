@@ -24,7 +24,8 @@ public class JacksonUtils {
   }
 
   public static <T> List<T> readJsonAndDeserializeToPojo(String filename, Class<T> cls) {
-    String testDataFilePath = System.getProperty("user.dir") + "//src//test//resources//test-data//" + filename;
+    String testDataFilePath = System.getProperty("user.dir") + File.separator + "src" + File.separator + "test" + 
+                             File.separator + "resources" + File.separator + "test-data" + File.separator + filename;
     ObjectMapper objectMapper = new ObjectMapper();
     try {
       File file = new File(testDataFilePath);
